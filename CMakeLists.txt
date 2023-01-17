@@ -61,6 +61,8 @@ endif()
 
 target_include_directories(oead SYSTEM PUBLIC lib/nonstd)
 
+find_package(ICU 61.0 COMPONENTS uc i18n REQUIRED)
+
 set(BUILD_TESTING OFF)
 add_subdirectory(lib/abseil)
 add_subdirectory(lib/EasyIterator)
@@ -78,6 +80,8 @@ target_link_libraries(oead
     absl::hash
     EasyIterator
     tsl::ordered_map
+    ICU::uc
+    ICU::i18n
   PRIVATE
     oead::res
     absl::inlined_vector
